@@ -1,0 +1,93 @@
+body {
+  margin: 0;
+  font-family: 'Rubik', Arial, Helvetica, sans-serif;
+  background: #111;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+.weather-app {
+  min-height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #fff;
+  position: relative;
+  animation-duration: 500ms;
+  animation-fill-mode: forwards;
+  transition: 500ms;
+  opacity: 0;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 0;
+  }
+
+  &.day.cloudy {
+    background-image: url('./assets/images/day/cloudy.jpg');
+  }
+
+  &.day.rainy {
+    background-image: url('./assets/images/day/rainy.jpg');
+  }
+
+  &.day.snowy {
+    background-image: url('./assets/images/day/snowy.jpg');
+  }
+
+  &.day.clear {
+    background-image: url('./assets/images/day/clear.jpg');
+  }
+
+  &.night.cloudy {
+    background-image: url('./assets/images/night/cloudy.jpg');
+  }
+
+  &.night.rainy {
+    background-image: url('./assets/images/night/rainy.jpg');
+  }
+
+  &.night.snowy {
+    background-image: url('./assets/images/night/snowy.jpg');
+  }
+
+  &.night.clear {
+    background-image: url('./assets/images/night/clear.jpg');
+  }
+
+  &.app-ready {
+    animation-name: fadeIn;
+  }
+
+  &.app-loading {
+    animation-name: fadeOut;
+  }
+}
